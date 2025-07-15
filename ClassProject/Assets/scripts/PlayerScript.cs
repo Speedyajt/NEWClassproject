@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour
     public float rotateSpeed = 75f;
     public float jumpForce;
     public Rigidbody rig;
+    public int health;
 
     public int coinCount;
    void Move() 
@@ -15,10 +16,10 @@ public class PlayerScript : MonoBehaviour
         //get the input axis
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-       // Vector3 rotation = Vector3.up * x;
+        Vector3 rotation = Vector3.up * x;
        
         //calculate a direction relative to where we are facing
-        //Quaternion angleRot = Quaternion.Euler(rotation * Time.fixedDeltaTime);
+        Quaternion angleRot = Quaternion.Euler(rotation * Time.fixedDeltaTime);
         Vector3 dir = (transform.forward * z + transform.right * x) * moveSpeed;
         dir.y = rig.velocity.y;
 
