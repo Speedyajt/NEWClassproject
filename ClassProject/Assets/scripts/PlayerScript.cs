@@ -68,13 +68,13 @@ public class PlayerScript : MonoBehaviour
 
         if(health <= 0)
         {
-            anim.SetBool("die",true);
             StartCoroutine("Die");
         }
     
     }
     IEnumerator Die()
     {
+        anim.SetBool("die", true);
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(0);
     }
